@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {handleRequest} from '../oauth-worker/src/index.mjs';
+import worker, {handleRequest} from '../oauth-worker/src/index.mjs';
 const env={CMS_ORIGIN:'https://pchrisoc.github.io',AUTH_ORIGIN:'https://redirect.simplyhost.org',GITHUB_CLIENT_ID:'test-id',GITHUB_CLIENT_SECRET:'test-secret',STATE_SECRET:'test-state-secret-at-least-thirty-two-characters',GITHUB_REPOSITORY:'pchrisoc/furever',ALLOWED_GITHUB_USERS:'pchrisoc',GITHUB_SCOPE:'public_repo'};
 const start=()=>handleRequest(new Request(env.AUTH_ORIGIN+'/auth?provider=github&site_id=pchrisoc.github.io'),env);
 async function session(){const response=await start();return{response,state:new URL(response.headers.get('Location')).searchParams.get('state'),cookie:response.headers.get('Set-Cookie').split(';')[0]};}
@@ -29,4 +29,11 @@ test('denies unauthorized users and accounts without write permission',async()=>
   const {cookie,state}=await session();const fetcher=async url=>Response.json(url.includes('access_token')?{access_token:'test-token'}:url.endsWith('/user')?{login}:{permissions:{push}});
   const response=await handleRequest(new Request(env.AUTH_ORIGIN+'/callback?code=x&state='+state,{headers:{Cookie:cookie}}),env,fetcher);assert.equal(response.status,403);assert(!(await response.text()).includes('test-token'));
  }
+});
+
+test('Cloudflare execution context is not treated as the fetch function',async t=>{
+ const {cookie,state}=await session();
+ t.mock.method(globalThis,'fetch',async url=>Response.json(url.includes('access_token')?{access_token:'context-test-token'}:url.endsWith('/user')?{login:'pchrisoc'}:{permissions:{push:true}}));
+ const response=await worker.fetch(new Request(env.AUTH_ORIGIN+'/callback?code=x&state='+state,{headers:{Cookie:cookie}}),env,{waitUntil(){}});
+ assert.equal(response.status,200);
 });

@@ -83,4 +83,4 @@ export async function handleRequest(request,env,fetcher=fetch) {
   return success(result.access_token,origin);
  }catch{return error('The login provider could not be reached. Start login again.',502);}
 }
-export default {fetch:handleRequest};
+export default {fetch(request,env){return handleRequest(request,env);}};
