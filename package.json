@@ -13,9 +13,10 @@
     "worker:check": "wrangler deploy --dry-run --config oauth-worker/wrangler.toml --outdir /tmp/furever-worker-check"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "devDependencies": {
-    "decap-cms": "3.16.3"
+    "decap-cms": "3.16.3",
+    "wrangler": "4.149.0"
   }
 }

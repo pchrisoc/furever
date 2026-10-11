@@ -1,45 +1,32 @@
 # Furever Home
 
-A responsive, one-page static cat adoption website for Netlify. All page content and appearance settings are editable in Decap CMS. The public page has no framework or package dependencies; the CMS loads Decap and Netlify Identity from their official CDNs.
+A standalone static cat adoption website with a self-hosted Decap CMS, GitHub Pages publishing, and a Cloudflare Worker for GitHub OAuth. All public text, images, colors, fonts, navigation, sections, contact details, and Petfinder settings are editable in the CMS.
 
-## Edit the website
+- Website: `https://pchrisoc.github.io/furever/` (after deployment)
+- CMS: `https://pchrisoc.github.io/furever/admin/`
+- OAuth service: `https://redirect.simplyhost.org`
+- OAuth callback: `https://redirect.simplyhost.org/callback`
 
-After deployment, open `https://YOUR-SITE/admin/`, log in, and choose **Furever Home → Configure entire website**. Expand the group you want to edit:
+## Local development
 
-- **Browser title & search description:** page title, description, favicon.
-- **Branding:** logo upload, name, subtitle, footer tagline.
-- **Colors & appearance:** nine colors, heading/body fonts, page width, button corners.
-- **Navigation links:** add, remove, reorder, or rename links.
-- **Hero / top section:** all copy, highlighted phrase, image upload and alt text, image label/caption, button, and visibility.
-- **About the organization:** heading, description, signoff, visibility.
-- **Adoptable cats & Petfinder:** headings, description, official embed code, widget height, placeholder copy/image, listing link, visibility.
-- **Closing call to action:** text, icon, link, visibility.
-- **Footer & contact information:** email, phone, location, headings, social/donation links, copyright, bottom line, sample notice, visibility.
+Use Node 22 or newer. Run `npm ci`, `npm test`, then `npm start`. The preview opens at `http://127.0.0.1:8888/furever/`. `npm run build` generates `dist/`, including the CMS bundle served from this same website. No Python, Hugo, Netlify, Identity service, or runtime CMS CDN is required.
 
-Use new lines in text fields to add line breaks. Clear optional labels to remove them. Highlight text must match part of its heading exactly. Links can use section anchors (`#about`, `#cats`, `#contact`), HTTPS URLs, `mailto:`, or `tel:`. Hidden sections disappear from navigation, and buttons aimed at hidden sections return to the page content.
+## Configure and publish
 
-The editor shows a live page preview using the same renderer as the static build. Petfinder scripts run only on the published page; preview uses the configurable placeholder. Uploaded images save under `web/assets/uploads` and are copied into the published site. Click **Publish** to commit to `main` and trigger the connected Netlify rebuild.
+Follow [the account setup guide](docs/SETUP.md) to enable GitHub Pages and deploy the OAuth Worker. Then visit `/furever/admin/`, sign in with GitHub, choose **Furever Home → Configure entire website**, expand a settings group, and click **Publish**. Decap saves to `main`; GitHub Actions builds and publishes the new static page.
 
-Contact details and organization copy are samples. Once replaced, turn off **Footer & contact information → Show sample content notice**.
+CMS configuration is in `web/admin/config.yml` (JSON-formatted YAML). Website content is in `web/content.json`. Media uploads are saved in `web/assets/uploads`. The public page and CMS preview share `web/assets/render-page.mjs`. GitHub login requires repository write access and inclusion in the Worker's allowed-editor list, initially `pchrisoc`.
 
-## Petfinder
+The public page is static. The OAuth Worker only handles login and returns the editor's GitHub token to the CMS through an origin-restricted popup handshake. The GitHub client secret stays in Cloudflare Worker secrets. The default OAuth scope is `public_repo`, for this public content repository. The CMS does not edit workflow or Worker files.
 
-Generate your official widget from https://www.petfinder.com/tools-widgets/custom-pet-list/getting-started/ and paste it into **Adoptable cats & Petfinder → Official Petfinder widget embed code**. Set the listing URL to your own organization's Petfinder page. No API keys or secrets are needed. Owner-supplied embed HTML is trusted and runs on the live site; use only official Petfinder code.
+## Custom website domain later
 
-The legacy `web/petfinder-embed.html` remains a fallback for existing embeds. The CMS field takes priority when nonempty. An empty field and comments-only fallback display the placeholder.
+Run `npm run configure-domain -- cats.example.org`, rebuild and push. This changes `deployment.json`, produces `dist/CNAME`, switches asset URLs to the domain root, and updates the Worker's allowed CMS origin. Set that same domain in GitHub Pages, configure its DNS, update the OAuth application's homepage URL, and redeploy the Worker. The OAuth callback remains `https://redirect.simplyhost.org/callback`.
 
-## Build and preview
+To switch back: `npm run configure-domain -- --github-pages`; remove the custom domain from GitHub Pages and redeploy the Worker. See [setup and domain instructions](docs/SETUP.md).
 
-Use Node 20 or newer. `npm run build` creates `dist/`. `npm test` verifies CMS field coverage, rendering, section visibility, embed isolation, and link/color validation. `npm start` builds and serves at http://localhost:8888 (requires Python 3). Netlify uses `npm run build` and publishes `dist`.
+## Petfinder and sample content
 
-`web/content.json` is the sole CMS content file. `web/admin/config.yml` is JSON-formatted YAML (valid YAML) with grouped fields. `web/assets/render-page.mjs` is shared by the build and CMS preview. The default static preview supports browsing; CMS authentication and saving require the deployed backend.
+Paste official widget HTML into **Adoptable cats & Petfinder → Official Petfinder widget embed code**. The live page runs the embed; the CMS preview shows a placeholder. Use the organization's Petfinder URL for the fallback link. `web/petfinder-embed.html` is a fallback for existing widget code. No Petfinder API secret belongs in this static website.
 
-## Authentication and deployment
-
-The CMS retains the starter's `git-gateway` backend and `main` branch. It requires working Netlify Identity and Git Gateway on the same site and an invited CMS user. Existing Git Gateway configurations continue working, but Netlify has deprecated it and does not recommend new configurations. For a new setup, use another supported Decap backend such as GitHub with OAuth. See https://docs.netlify.com/manage/security/secure-access-to-sites/git-gateway/ and https://decapcms.org/docs/github-backend/.
-
-Push this repository to the branch connected to Netlify to deploy. Local edits alone do not update the live website. If dashboard settings override the repository, use build command `npm run build`, publish directory `dist`, and clear an old base directory. Existing custom domains can remain attached.
-
-Both local repositories contain the same implementation. Each website's CMS edits only its connected repository; updates do not automatically synchronize between them. Invitation and reset tokens landing on the homepage redirect to `/admin/` on the same origin.
-
-The former Hugo/Decap starter files in `site/` and `src/` are retained for reference in one-click-hugo-cms and are no longer built.
+Dummy contact information and draft copy are retained. Turn off **Footer & contact information → Show sample content notice** after replacing them.
