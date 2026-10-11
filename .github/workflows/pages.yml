@@ -23,8 +23,8 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - name: Select GitHub Actions as the Pages source
-        run: node scripts/configure-pages.mjs
+      - name: Verify GitHub Actions is the Pages source
+        run: node scripts/check-pages-source.mjs
         env:
           GITHUB_TOKEN: ${{ github.token }}
       - run: npm ci
