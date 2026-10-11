@@ -69,7 +69,7 @@
     "title": "Someone special\nis waiting.",
     "description": "Big personalities. Soft little paws.\nExplore adoptable cats through Petfinder\nand find the friend who feels like home.",
     "petfinderUrl": "https://www.petfinder.com/search/cats-for-adoption/",
-    "petfinderEmbed": "",
+    "petfinderEmbed": "<!-- Pet List Widget - Start -->\n<script src=\"https://www.petfinder.com/pet-scroller.bundle.js\"></script>\n<pet-scroller\n    s3Url=\"https://dbw3zep4prcju.cloudfront.net/\"\n    apiBase=\"https://psl.petfinder.com/graphql\"\n    organization='[\"CA10069\"]'\n    status=\"adoptable\"\n    petfinderUrl=\"https://www.petfinder.com/\"\n    hideBreed=\"true\"\n    limit=\"48\"\n    petListTitle=\"\">\n</pet-scroller>\n<!-- Pet List Widget - End -->\n",
     "widgetHeight": 650,
     "placeholderLabel": "ADOPTABLE CATS · PETFINDER",
     "placeholderImage": "/assets/paw.svg",
