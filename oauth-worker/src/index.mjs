@@ -27,7 +27,7 @@ function success(token,origin) {
  const nonce=random();
  const message=JSON.stringify(`authorization:github:success:${JSON.stringify({token,provider:'github'})}`).replace(/</g,'\\u003c');
  const target=JSON.stringify(origin);
- const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Furever Home login</title></head><body><p>Completing GitHub login. You can close this window after returning to the CMS.</p><script nonce="${nonce}">
+ const html=`<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Kitten Rescue CA login</title></head><body><p>Completing GitHub login. You can close this window after returning to the CMS.</p><script nonce="${nonce}">
  const target=${target};
  if(window.opener){
   const receive=(event)=>{
@@ -47,7 +47,7 @@ export async function handleRequest(request,env,fetcher=fetch) {
  const clientSecret=String(env.GITHUB_CLIENT_SECRET||'').trim();
  if(request.method!=='GET')return new Response('Method not allowed',{status:405,headers:headers({Allow:'GET'})});
  if(url.pathname==='/health')return new Response(JSON.stringify({service:'furever-github-oauth',configured:Boolean(env.GITHUB_CLIENT_ID&&env.GITHUB_CLIENT_SECRET&&env.STATE_SECRET)}),{headers:headers({'Content-Type':'application/json'})});
- if(!['/auth','/callback'].includes(url.pathname))return new Response('Furever Home GitHub OAuth. Start login from the website /admin/ page.',{status:url.pathname==='/'?200:404,headers:headers()});
+ if(!['/auth','/callback'].includes(url.pathname))return new Response('Kitten Rescue CA GitHub OAuth. Start login from the website /admin/ page.',{status:url.pathname==='/'?200:404,headers:headers()});
  if(!clientId||!clientSecret||!env.STATE_SECRET||env.STATE_SECRET.length<32)return error('OAuth setup is incomplete. Configure the Worker secrets.',503);
  const origin=new URL(env.CMS_ORIGIN).origin;
  const authOrigin=new URL(env.AUTH_ORIGIN).origin;

@@ -12,7 +12,7 @@
   "collections": [
     {
       "name": "website",
-      "label": "Furever Home",
+      "label": "Kitten Rescue CA",
       "files": [
         {
           "name": "content",
@@ -40,6 +40,24 @@
                   "label": "Browser icon",
                   "name": "favicon",
                   "widget": "image"
+                },
+                {
+                  "label": "Apple touch icon",
+                  "name": "appleTouchIcon",
+                  "widget": "image",
+                  "required": false
+                },
+                {
+                  "label": "Social sharing image",
+                  "name": "socialImage",
+                  "widget": "image",
+                  "required": false
+                },
+                {
+                  "label": "App icon (512 \u00d7 512 PNG)",
+                  "name": "appIcon",
+                  "widget": "image",
+                  "required": false
                 }
               ]
             },

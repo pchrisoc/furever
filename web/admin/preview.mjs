@@ -4,11 +4,11 @@ if (!response.ok) throw new Error('Could not load the page preview template.');
 const template = await response.text();
 const PagePreview = ({entry, getAsset}) => {
   const data = entry.getIn(['data']).toJS();
-  for (const [section, key] of [['seo','favicon'],['branding','logo'],['hero','image'],['cats','placeholderImage']]) {
+  for (const [section, key] of [['seo','appleTouchIcon'],['seo','socialImage'],['seo','appIcon'],['seo','favicon'],['branding','logo'],['hero','image'],['cats','placeholderImage']]) {
     if (data[section]?.[key]) data[section][key] = String(getAsset(data[section][key]));
   }
   return window.h('iframe', {
-    title: 'Furever Home page preview',
+    title: 'Kitten Rescue CA page preview',
     srcDoc: renderPage(data, template, {preview:true, baseUrl:new URL('../', import.meta.url).href, basePath:new URL('../', import.meta.url).pathname.replace(/\/$/,'')}),
     sandbox: 'allow-same-origin',
     style: {width:'100%', height:'85vh', border:0, display:'block', background:'white'}

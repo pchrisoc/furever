@@ -1,4 +1,4 @@
-# Furever Home
+# Kitten Rescue CA
 
 A standalone static cat adoption website with a self-hosted Decap CMS, GitHub Pages publishing, and a Cloudflare Worker for GitHub OAuth. All public text, images, colors, fonts, navigation, sections, contact details, and Petfinder settings are editable in the CMS.
 
@@ -13,7 +13,7 @@ Use Node 22 or newer. Run `npm ci`, `npm test`, then `npm start`. The preview op
 
 ## Configure and publish
 
-Follow [the account setup guide](docs/SETUP.md) to enable GitHub Pages and deploy the OAuth Worker. Then visit `/furever/admin/`, sign in with GitHub, choose **Furever Home → Configure entire website**, expand a settings group, and click **Publish**. Decap saves to `main`; GitHub Actions builds and publishes the new static page.
+Follow [the account setup guide](docs/SETUP.md) to enable GitHub Pages and deploy the OAuth Worker. Then visit `/furever/admin/`, sign in with GitHub, choose **Kitten Rescue CA → Configure entire website**, expand a settings group, and click **Publish**. Decap saves to `main`; GitHub Actions builds and publishes the new static page.
 
 CMS configuration is in `web/admin/config.yml` (JSON-formatted YAML). Website content is in `web/content.json`. Media uploads are saved in `web/assets/uploads`. The public page and CMS preview share `web/assets/render-page.mjs`. GitHub login requires repository write access and inclusion in the Worker's allowed-editor list, initially `pchrisoc`.
 

@@ -1,13 +1,16 @@
 {
   "seo": {
-    "title": "Furever Home · A little love. A forever home.",
-    "description": "Meet your next feline companion at Furever Home. Learn about our mission and explore cat adoption through Petfinder.",
-    "favicon": "/assets/paw.svg"
+    "title": "Kitten Rescue CA · Cat Adoption",
+    "description": "Meet your next feline companion at Kitten Rescue CA. Learn about our mission and explore cat adoption through Petfinder.",
+    "favicon": "/assets/branding/favicon.ico",
+    "appleTouchIcon": "/assets/branding/apple-touch-icon.png",
+    "socialImage": "/assets/branding/kitten-rescue-ca-logo.png",
+    "appIcon": "/assets/branding/app-icon-512.png"
   },
   "branding": {
-    "name": "furever",
-    "subtitle": "HOME",
-    "logo": "/assets/paw.svg",
+    "name": "Kitten Rescue CA",
+    "subtitle": "",
+    "logo": "/assets/branding/kitten-rescue-ca-logo.png",
     "tagline": "Helping cats find their people."
   },
   "theme": {
@@ -43,24 +46,24 @@
     "enabled": true,
     "eyebrow": "SMALL PAWS. BIG POSSIBILITIES.",
     "eyebrowIcon": "✦",
-    "title": "A little love.\nA furever home.",
-    "highlight": "furever",
+    "title": "A little love.\nA forever home.",
+    "highlight": "forever",
     "description": "Your favorite hello might just be a meow.\nFind a feline friend and give a new story a place to begin.",
     "buttonLabel": "Meet your new companion",
     "buttonUrl": "#cats",
     "note": "Open your heart. Make room for a cat.",
-    "image": "/assets/cat.svg",
-    "imageAlt": "Illustration of a peaceful grey cat sitting in a light blue arch",
-    "imageLabel": "THE BEST THINGS IN LIFE\nCOME WITH WHISKERS.",
+    "image": "/assets/branding/kitten-rescue-ca-logo.png",
+    "imageAlt": "Kitten Rescue California logo: a black kitten and California poppies over a purple California silhouette",
+    "imageLabel": "",
     "imageCaption": "A home changes everything.",
     "captionIcon": "♡"
   },
   "about": {
     "enabled": true,
-    "eyebrow": "HELLO, WE’RE FUREVER HOME",
+    "eyebrow": "HELLO, WE’RE KITTEN RESCUE CA",
     "title": "For the love\nof cats.",
     "highlight": "cats.",
-    "description": "Furever Home is dedicated to helping cats find loving homes. We believe every cat deserves a safe place to land, a little patience, and someone to call their own. Our goal is to connect people with feline companions and make the journey to adoption feel welcoming and personal.",
+    "description": "Kitten Rescue CA is dedicated to helping cats find loving homes. We believe every cat deserves a safe place to land, a little patience, and someone to call their own. Our goal is to connect people with feline companions and make the journey to adoption feel welcoming and personal.",
     "signoff": "A new beginning for them.\nA new best friend for you."
   },
   "cats": {
@@ -72,7 +75,7 @@
     "petfinderEmbed": "<!-- Pet List Widget - Start -->\n<script src=\"https://www.petfinder.com/pet-scroller.bundle.js\"></script>\n<pet-scroller\n    s3Url=\"https://dbw3zep4prcju.cloudfront.net/\"\n    apiBase=\"https://psl.petfinder.com/graphql\"\n    organization='[\"CA10069\"]'\n    status=\"adoptable\"\n    petfinderUrl=\"https://www.petfinder.com/\"\n    hideBreed=\"true\"\n    limit=\"48\"\n    petListTitle=\"\">\n</pet-scroller>\n<!-- Pet List Widget - End -->\n",
     "widgetHeight": 650,
     "placeholderLabel": "ADOPTABLE CATS · PETFINDER",
-    "placeholderImage": "/assets/paw.svg",
+    "placeholderImage": "/assets/branding/kitten-rescue-ca-logo.png",
     "placeholderTitle": "A little space for your future best friend.",
     "placeholderDescription": "Our adoptable-cat listings will appear right here.\nCheck back soon to meet the cats.",
     "placeholderBadge": "Petfinder embed placeholder",
@@ -96,7 +99,7 @@
     "location": "Your city, your state",
     "petfinderLabel": "Visit Petfinder",
     "links": [],
-    "copyright": "© Furever Home",
+    "copyright": "© Kitten Rescue CA",
     "bottomText": "Made for second chances.",
     "showSampleNotice": true,
     "sampleNotice": "Preview content · Contact details and organization copy are samples."

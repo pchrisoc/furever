@@ -1,4 +1,4 @@
-name: Publish Furever Home
+name: Publish Kitten Rescue CA
 on:
   push:
     branches: [main]

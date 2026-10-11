@@ -1,4 +1,4 @@
-# Deploy Furever Home
+# Deploy Kitten Rescue CA
 
 The source and configuration are ready. Account authentication, OAuth credentials, and domain activation are the remaining external steps. Run commands from `/Users/pchrisoc/furever`.
 
@@ -14,11 +14,11 @@ Follow GitHub's browser sign-in. Check that `pchrisoc/furever` exists and is pub
 
 ```sh
 git add .
-git commit -m "Build Furever Home with GitHub Pages and Cloudflare OAuth"
+git commit -m "Build Kitten Rescue CA with GitHub Pages and Cloudflare OAuth"
 git push -u origin main
 ```
 
-In the repository, choose **Settings → Pages → Build and deployment → Source → GitHub Actions**. Run **Actions → Publish Furever Home → Run workflow** if the first push occurred before Pages was enabled. GitHub Actions runs the tests, builds the page and local CMS bundle, and uploads `dist/`.
+In the repository, choose **Settings → Pages → Build and deployment → Source → GitHub Actions**. Run **Actions → Publish Kitten Rescue CA → Run workflow** if the first push occurred before Pages was enabled. GitHub Actions runs the tests, builds the page and local CMS bundle, and uploads `dist/`.
 
 Expected site: `https://pchrisoc.github.io/furever/`. A deployment succeeds independently of OAuth setup; CMS login will work after the next steps.
 
@@ -28,7 +28,7 @@ Go to https://github.com/settings/developers → **OAuth Apps → New OAuth App*
 
 | Setting | Value |
 | --- | --- |
-| Application name | Furever Home CMS |
+| Application name | Kitten Rescue CA CMS |
 | Homepage URL | `https://pchrisoc.github.io/furever/` |
 | Authorization callback URL | `https://redirect.simplyhost.org/callback` |
 
@@ -67,7 +67,7 @@ npm run configure-domain -- cats.example.org
 npm test
 npm run build
 git add deployment.json oauth-worker/wrangler.toml
-git commit -m "Configure Furever Home custom domain"
+git commit -m "Configure Kitten Rescue CA custom domain"
 git push
 npm run worker:deploy
 ```

@@ -1,8 +1,8 @@
 {
-  "name": "furever-home",
+  "name": "kitten-rescue-ca",
   "version": "1.0.0",
   "private": true,
-  "description": "Furever Home \u2014 a one-page cat adoption website",
+  "description": "Kitten Rescue CA \u2014 a one-page cat adoption website",
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:preview": "node scripts/build.mjs",
