@@ -43,10 +43,12 @@ function success(token,origin) {
 }
 export async function handleRequest(request,env,fetcher=fetch) {
  const url=new URL(request.url);
+ const clientId=String(env.GITHUB_CLIENT_ID||'').trim();
+ const clientSecret=String(env.GITHUB_CLIENT_SECRET||'').trim();
  if(request.method!=='GET')return new Response('Method not allowed',{status:405,headers:headers({Allow:'GET'})});
  if(url.pathname==='/health')return new Response(JSON.stringify({service:'furever-github-oauth',configured:Boolean(env.GITHUB_CLIENT_ID&&env.GITHUB_CLIENT_SECRET&&env.STATE_SECRET)}),{headers:headers({'Content-Type':'application/json'})});
  if(!['/auth','/callback'].includes(url.pathname))return new Response('Furever Home GitHub OAuth. Start login from the website /admin/ page.',{status:url.pathname==='/'?200:404,headers:headers()});
- if(!env.GITHUB_CLIENT_ID||!env.GITHUB_CLIENT_SECRET||!env.STATE_SECRET||env.STATE_SECRET.length<32)return error('OAuth setup is incomplete. Configure the Worker secrets.',503);
+ if(!clientId||!clientSecret||!env.STATE_SECRET||env.STATE_SECRET.length<32)return error('OAuth setup is incomplete. Configure the Worker secrets.',503);
  const origin=new URL(env.CMS_ORIGIN).origin;
  const authOrigin=new URL(env.AUTH_ORIGIN).origin;
  if(url.origin!==authOrigin)return error('Use the configured OAuth domain.',400);
@@ -56,7 +58,7 @@ export async function handleRequest(request,env,fetcher=fetch) {
   const state=random(),verifier=random();
   const session={state,verifier,origin,created:Date.now()};
   const authorize=new URL('https://github.com/login/oauth/authorize');
-  authorize.search=new URLSearchParams({client_id:env.GITHUB_CLIENT_ID,redirect_uri:callback,scope:env.GITHUB_SCOPE||'public_repo',state,code_challenge:b64(await crypto.subtle.digest('SHA-256',encoder.encode(verifier))),code_challenge_method:'S256',allow_signup:'false'}).toString();
+  authorize.search=new URLSearchParams({client_id:clientId,redirect_uri:callback,scope:env.GITHUB_SCOPE||'public_repo',state,code_challenge:b64(await crypto.subtle.digest('SHA-256',encoder.encode(verifier))),code_challenge_method:'S256',allow_signup:'false'}).toString();
   return new Response(null,{status:302,headers:headers({Location:authorize.href,'Set-Cookie':cookie(await seal(session,env.STATE_SECRET))})});
  }
  const rawCookie=request.headers.get('Cookie')?.split(';').map(part=>part.trim()).find(part=>part.startsWith(`${COOKIE}=`))?.slice(COOKIE.length+1);
@@ -68,9 +70,17 @@ export async function handleRequest(request,env,fetcher=fetch) {
  const code=url.searchParams.get('code');
  if(!code)return error('GitHub did not provide an authorization code.');
  try {
-  const response=await fetcher('https://github.com/login/oauth/access_token',{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json'},body:JSON.stringify({client_id:env.GITHUB_CLIENT_ID,client_secret:env.GITHUB_CLIENT_SECRET,code,redirect_uri:callback,code_verifier:session.verifier})});
+  const response=await fetcher('https://github.com/login/oauth/access_token',{method:'POST',headers:{Accept:'application/json','Content-Type':'application/json'},body:JSON.stringify({client_id:clientId,client_secret:clientSecret,code,redirect_uri:callback,code_verifier:session.verifier})});
   const result=await response.json();
-  if(!response.ok||!result.access_token||result.error)return error('GitHub could not complete authorization. Start login again.',502);
+  if(!response.ok||!result.access_token||result.error){
+   const messages={
+    incorrect_client_credentials:'GitHub rejected the OAuth app credentials. Update GITHUB_CLIENT_SECRET with a Client Secret from the same GitHub OAuth App as GITHUB_CLIENT_ID, then start a new login.',
+    redirect_uri_mismatch:'GitHub rejected the callback URL. Set the OAuth App callback to '+callback+', then start a new login.',
+    bad_verification_code:'GitHub rejected the authorization code or PKCE verification. Close this popup and start a fresh login from the CMS; do not refresh an old callback page.',
+    unverified_user_email:'Verify your primary email address in GitHub account settings, then start a new login.'
+   };
+   return error(Object.hasOwn(messages,result.error)?messages[result.error]:'GitHub could not complete authorization (HTTP '+response.status+'). Start login again.',502);
+  }
   const apiHeaders={Authorization:`Bearer ${result.access_token}`,Accept:'application/vnd.github+json','User-Agent':'furever-github-oauth','X-GitHub-Api-Version':'2022-11-28'};
   const userResponse=await fetcher('https://api.github.com/user',{headers:apiHeaders});
   const user=await userResponse.json();

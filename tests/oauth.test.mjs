@@ -37,3 +37,23 @@ test('Cloudflare execution context is not treated as the fetch function',async t
  const response=await worker.fetch(new Request(env.AUTH_ORIGIN+'/callback?code=x&state='+state,{headers:{Cookie:cookie}}),env,{waitUntil(){}});
  assert.equal(response.status,200);
 });
+
+test('token exchange errors explain recovery without exposing upstream secrets',async()=>{
+ const cases={incorrect_client_credentials:'Update GITHUB_CLIENT_SECRET',redirect_uri_mismatch:'Set the OAuth App callback',bad_verification_code:'start a fresh login',unverified_user_email:'Verify your primary email address'};
+ for(const [code,message] of Object.entries(cases)){
+  const {cookie,state}=await session();
+  const response=await handleRequest(new Request(env.AUTH_ORIGIN+'/callback?code=x&state='+state,{headers:{Cookie:cookie}}),env,async()=>Response.json({error:code,error_description:'private-upstream-secret'}));
+  assert.equal(response.status,502);const text=await response.text();assert(text.includes(message));assert(!text.includes('private-upstream-secret'));
+ }
+});
+test('app credentials tolerate accidental whitespace in secret prompts',async()=>{
+ const padded={...env,GITHUB_CLIENT_ID:' '+env.GITHUB_CLIENT_ID+' ',GITHUB_CLIENT_SECRET:' '+env.GITHUB_CLIENT_SECRET+' '};
+ const auth=await handleRequest(new Request(env.AUTH_ORIGIN+'/auth?provider=github&site_id=pchrisoc.github.io'),padded);
+ const location=new URL(auth.headers.get('Location'));assert.equal(location.searchParams.get('client_id'),env.GITHUB_CLIENT_ID);
+ const cookie=auth.headers.get('Set-Cookie').split(';')[0];
+ const response=await handleRequest(new Request(env.AUTH_ORIGIN+'/callback?code=x&state='+location.searchParams.get('state'),{headers:{Cookie:cookie}}),padded,async(url,options)=>{
+  if(url.includes('access_token')){const body=JSON.parse(options.body);assert.equal(body.client_id,env.GITHUB_CLIENT_ID);assert.equal(body.client_secret,env.GITHUB_CLIENT_SECRET);return Response.json({access_token:'test-token'});}
+  return Response.json(url.endsWith('/user')?{login:'pchrisoc'}:{permissions:{push:true}});
+ });
+ assert.equal(response.status,200);
+});
