@@ -38,7 +38,7 @@
       "url": "#cats"
     },
     {
-      "label": "Get in touch ↗",
+      "label": "Get in touch",
       "url": "#contact"
     }
   ],
@@ -55,8 +55,8 @@
     "image": "/assets/branding/kitten-rescue-ca-logo.png",
     "imageAlt": "Kitten Rescue California logo: a black kitten and California poppies over a purple California silhouette",
     "imageLabel": "",
-    "imageCaption": "A home changes everything.",
-    "captionIcon": "♡"
+    "imageCaption": "",
+    "captionIcon": ""
   },
   "about": {
     "enabled": true,
