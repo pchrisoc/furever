@@ -1,0 +1,18 @@
+name = "furever-github-oauth"
+main = "src/index.mjs"
+compatibility_date = "2026-10-11"
+workers_dev = false
+preview_urls = false
+
+[[routes]]
+pattern = "redirect.simplyhost.org"
+custom_domain = true
+
+[vars]
+CMS_ORIGIN = "https://pchrisoc.github.io"
+AUTH_ORIGIN = "https://redirect.simplyhost.org"
+GITHUB_REPOSITORY = "pchrisoc/furever"
+ALLOWED_GITHUB_USERS = "pchrisoc"
+GITHUB_SCOPE = "public_repo"
+
+# Set GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, and STATE_SECRET with Wrangler secrets.

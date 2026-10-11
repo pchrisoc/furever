@@ -1,0 +1,583 @@
+{
+  "backend": {
+    "name": "github",
+    "repo": "pchrisoc/furever",
+    "branch": "main",
+    "base_url": "https://redirect.simplyhost.org",
+    "auth_endpoint": "auth",
+    "auth_scope": "public_repo"
+  },
+  "media_folder": "web/assets/uploads",
+  "public_folder": "/assets/uploads",
+  "collections": [
+    {
+      "name": "website",
+      "label": "Furever Home",
+      "files": [
+        {
+          "name": "content",
+          "label": "Configure entire website",
+          "file": "web/content.json",
+          "format": "json",
+          "fields": [
+            {
+              "label": "Browser title & search description",
+              "name": "seo",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Browser tab title",
+                  "name": "title",
+                  "widget": "string"
+                },
+                {
+                  "label": "Search description",
+                  "name": "description",
+                  "widget": "text"
+                },
+                {
+                  "label": "Browser icon",
+                  "name": "favicon",
+                  "widget": "image"
+                }
+              ]
+            },
+            {
+              "label": "Branding",
+              "name": "branding",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Brand name",
+                  "name": "name",
+                  "widget": "string"
+                },
+                {
+                  "label": "Brand subtitle",
+                  "name": "subtitle",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Logo",
+                  "name": "logo",
+                  "widget": "image"
+                },
+                {
+                  "label": "Footer tagline",
+                  "name": "tagline",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Colors & appearance",
+              "name": "theme",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Page background",
+                  "name": "background",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "Main text & buttons",
+                  "name": "text",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "Secondary text",
+                  "name": "muted",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "About section / light blue",
+                  "name": "lightBlue",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "Highlighted text & links",
+                  "name": "accent",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "Borders",
+                  "name": "border",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "Petfinder panel",
+                  "name": "panel",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "Footer background",
+                  "name": "footer",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "Button text",
+                  "name": "buttonText",
+                  "widget": "color",
+                  "allowInput": true,
+                  "enableAlpha": false
+                },
+                {
+                  "label": "Heading font",
+                  "name": "headingFont",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "Classic serif",
+                      "value": "serif"
+                    },
+                    {
+                      "label": "Clean sans serif",
+                      "value": "sans"
+                    }
+                  ]
+                },
+                {
+                  "label": "Body font",
+                  "name": "bodyFont",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "Clean sans serif",
+                      "value": "sans"
+                    },
+                    {
+                      "label": "Classic serif",
+                      "value": "serif"
+                    }
+                  ]
+                },
+                {
+                  "label": "Maximum page width (pixels)",
+                  "name": "pageWidth",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 960,
+                  "max": 1440
+                },
+                {
+                  "label": "Button corner radius (pixels)",
+                  "name": "buttonRadius",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 0,
+                  "max": 40
+                }
+              ]
+            },
+            {
+              "label": "Navigation links",
+              "name": "navigation",
+              "widget": "list",
+              "summary": "{{fields.label}}",
+              "fields": [
+                {
+                  "label": "Link label",
+                  "name": "label",
+                  "widget": "string"
+                },
+                {
+                  "label": "Link destination",
+                  "name": "url",
+                  "widget": "string",
+                  "hint": "Use #about, #cats, #contact, an HTTPS URL, mailto:, or tel:."
+                }
+              ]
+            },
+            {
+              "label": "Hero / top section",
+              "name": "hero",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Show this section",
+                  "name": "enabled",
+                  "widget": "boolean",
+                  "default": true
+                },
+                {
+                  "label": "Small heading",
+                  "name": "eyebrow",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Small heading icon",
+                  "name": "eyebrowIcon",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Heading (use new lines for line breaks)",
+                  "name": "title",
+                  "widget": "text"
+                },
+                {
+                  "label": "Word or phrase to highlight",
+                  "name": "highlight",
+                  "widget": "string",
+                  "required": false,
+                  "hint": "Must match part of the heading exactly."
+                },
+                {
+                  "label": "Introduction",
+                  "name": "description",
+                  "widget": "text"
+                },
+                {
+                  "label": "Button label",
+                  "name": "buttonLabel",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Button destination",
+                  "name": "buttonUrl",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Note below button",
+                  "name": "note",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Hero image",
+                  "name": "image",
+                  "widget": "image",
+                  "required": false
+                },
+                {
+                  "label": "Image description for accessibility",
+                  "name": "imageAlt",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Text over image",
+                  "name": "imageLabel",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "label": "Image caption",
+                  "name": "imageCaption",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Caption icon",
+                  "name": "captionIcon",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "About the organization",
+              "name": "about",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Show this section",
+                  "name": "enabled",
+                  "widget": "boolean",
+                  "default": true
+                },
+                {
+                  "label": "Small heading",
+                  "name": "eyebrow",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Heading (use new lines for line breaks)",
+                  "name": "title",
+                  "widget": "text"
+                },
+                {
+                  "label": "Word or phrase to highlight",
+                  "name": "highlight",
+                  "widget": "string",
+                  "required": false,
+                  "hint": "Must match part of the heading exactly."
+                },
+                {
+                  "label": "Organization description",
+                  "name": "description",
+                  "widget": "text"
+                },
+                {
+                  "label": "Signoff",
+                  "name": "signoff",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Adoptable cats & Petfinder",
+              "name": "cats",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Show this section",
+                  "name": "enabled",
+                  "widget": "boolean",
+                  "default": true
+                },
+                {
+                  "label": "Small heading",
+                  "name": "eyebrow",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Heading",
+                  "name": "title",
+                  "widget": "text"
+                },
+                {
+                  "label": "Introduction",
+                  "name": "description",
+                  "widget": "text"
+                },
+                {
+                  "label": "Petfinder listing URL",
+                  "name": "petfinderUrl",
+                  "widget": "string",
+                  "pattern": [
+                    "^https://([a-zA-Z0-9-]+\\.)*petfinder\\.com/",
+                    "Use an HTTPS Petfinder URL."
+                  ]
+                },
+                {
+                  "label": "Official Petfinder widget embed code",
+                  "name": "petfinderEmbed",
+                  "widget": "text",
+                  "required": false,
+                  "hint": "Paste the complete embed from Petfinder. Leave blank for the placeholder. Scripts run on the published site; the editor preview shows a placeholder."
+                },
+                {
+                  "label": "Widget minimum height (pixels)",
+                  "name": "widgetHeight",
+                  "widget": "number",
+                  "value_type": "int",
+                  "min": 300,
+                  "max": 1600
+                },
+                {
+                  "label": "Placeholder header",
+                  "name": "placeholderLabel",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Placeholder image",
+                  "name": "placeholderImage",
+                  "widget": "image",
+                  "required": false
+                },
+                {
+                  "label": "Placeholder heading",
+                  "name": "placeholderTitle",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Placeholder description",
+                  "name": "placeholderDescription",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "label": "Placeholder badge",
+                  "name": "placeholderBadge",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Text below widget",
+                  "name": "fallbackText",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Petfinder link label",
+                  "name": "fallbackLabel",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Closing call to action",
+              "name": "closing",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Show this section",
+                  "name": "enabled",
+                  "widget": "boolean",
+                  "default": true
+                },
+                {
+                  "label": "Icon",
+                  "name": "icon",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Text",
+                  "name": "text",
+                  "widget": "text"
+                },
+                {
+                  "label": "Link label",
+                  "name": "buttonLabel",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Link destination",
+                  "name": "buttonUrl",
+                  "widget": "string",
+                  "required": false
+                }
+              ]
+            },
+            {
+              "label": "Footer & contact information",
+              "name": "footer",
+              "widget": "object",
+              "collapsed": true,
+              "fields": [
+                {
+                  "label": "Show this section",
+                  "name": "enabled",
+                  "widget": "boolean",
+                  "default": true
+                },
+                {
+                  "label": "Contact heading",
+                  "name": "contactTitle",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Contact introduction",
+                  "name": "contactDescription",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "label": "Email",
+                  "name": "email",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Phone",
+                  "name": "phone",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Location heading",
+                  "name": "locationTitle",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Location",
+                  "name": "location",
+                  "widget": "text",
+                  "required": false
+                },
+                {
+                  "label": "Petfinder link label",
+                  "name": "petfinderLabel",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Additional links (social, donation, etc.)",
+                  "name": "links",
+                  "widget": "list",
+                  "required": false,
+                  "fields": [
+                    {
+                      "label": "Link label",
+                      "name": "label",
+                      "widget": "string"
+                    },
+                    {
+                      "label": "Link destination",
+                      "name": "url",
+                      "widget": "string",
+                      "hint": "Use #about, #cats, #contact, an HTTPS URL, mailto:, or tel:."
+                    }
+                  ]
+                },
+                {
+                  "label": "Copyright text",
+                  "name": "copyright",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Bottom line",
+                  "name": "bottomText",
+                  "widget": "string",
+                  "required": false
+                },
+                {
+                  "label": "Show sample content notice",
+                  "name": "showSampleNotice",
+                  "widget": "boolean",
+                  "default": true
+                },
+                {
+                  "label": "Sample notice text",
+                  "name": "sampleNotice",
+                  "widget": "text",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

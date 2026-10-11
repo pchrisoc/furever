@@ -1,0 +1,104 @@
+{
+  "seo": {
+    "title": "Furever Home · A little love. A forever home.",
+    "description": "Meet your next feline companion at Furever Home. Learn about our mission and explore cat adoption through Petfinder.",
+    "favicon": "/assets/paw.svg"
+  },
+  "branding": {
+    "name": "furever",
+    "subtitle": "HOME",
+    "logo": "/assets/paw.svg",
+    "tagline": "Helping cats find their people."
+  },
+  "theme": {
+    "background": "#ffffff",
+    "text": "#303a40",
+    "muted": "#59666e",
+    "lightBlue": "#e1f0f8",
+    "accent": "#48728c",
+    "border": "#dbe4e9",
+    "panel": "#f8fbfd",
+    "footer": "#eef5f9",
+    "buttonText": "#ffffff",
+    "headingFont": "serif",
+    "bodyFont": "sans",
+    "pageWidth": 1160,
+    "buttonRadius": 5
+  },
+  "navigation": [
+    {
+      "label": "Our story",
+      "url": "#about"
+    },
+    {
+      "label": "Meet the cats",
+      "url": "#cats"
+    },
+    {
+      "label": "Get in touch ↗",
+      "url": "#contact"
+    }
+  ],
+  "hero": {
+    "enabled": true,
+    "eyebrow": "SMALL PAWS. BIG POSSIBILITIES.",
+    "eyebrowIcon": "✦",
+    "title": "A little love.\nA furever home.",
+    "highlight": "furever",
+    "description": "Your favorite hello might just be a meow.\nFind a feline friend and give a new story a place to begin.",
+    "buttonLabel": "Meet your new companion",
+    "buttonUrl": "#cats",
+    "note": "Open your heart. Make room for a cat.",
+    "image": "/assets/cat.svg",
+    "imageAlt": "Illustration of a peaceful grey cat sitting in a light blue arch",
+    "imageLabel": "THE BEST THINGS IN LIFE\nCOME WITH WHISKERS.",
+    "imageCaption": "A home changes everything.",
+    "captionIcon": "♡"
+  },
+  "about": {
+    "enabled": true,
+    "eyebrow": "HELLO, WE’RE FUREVER HOME",
+    "title": "For the love\nof cats.",
+    "highlight": "cats.",
+    "description": "Furever Home is dedicated to helping cats find loving homes. We believe every cat deserves a safe place to land, a little patience, and someone to call their own. Our goal is to connect people with feline companions and make the journey to adoption feel welcoming and personal.",
+    "signoff": "A new beginning for them.\nA new best friend for you."
+  },
+  "cats": {
+    "enabled": true,
+    "eyebrow": "YOUR NEXT CHAPTER STARTS HERE",
+    "title": "Someone special\nis waiting.",
+    "description": "Big personalities. Soft little paws.\nExplore adoptable cats through Petfinder\nand find the friend who feels like home.",
+    "petfinderUrl": "https://www.petfinder.com/search/cats-for-adoption/",
+    "petfinderEmbed": "",
+    "widgetHeight": 650,
+    "placeholderLabel": "ADOPTABLE CATS · PETFINDER",
+    "placeholderImage": "/assets/paw.svg",
+    "placeholderTitle": "A little space for your future best friend.",
+    "placeholderDescription": "Our adoptable-cat listings will appear right here.\nCheck back soon to meet the cats.",
+    "placeholderBadge": "Petfinder embed placeholder",
+    "fallbackText": "Prefer to browse on Petfinder?",
+    "fallbackLabel": "Explore cat listings"
+  },
+  "closing": {
+    "enabled": true,
+    "icon": "♡",
+    "text": "One small paw.\nA whole lot of love.",
+    "buttonLabel": "Let’s connect",
+    "buttonUrl": "#contact"
+  },
+  "footer": {
+    "enabled": true,
+    "contactTitle": "Say hello.",
+    "contactDescription": "For adoption questions and all things cats.",
+    "email": "hello@example.org",
+    "phone": "(555) 010-2020",
+    "locationTitle": "Find us.",
+    "location": "Your city, your state",
+    "petfinderLabel": "Visit Petfinder",
+    "links": [],
+    "copyright": "© Furever Home",
+    "bottomText": "Made for second chances.",
+    "showSampleNotice": true,
+    "sampleNotice": "Preview content · Contact details and organization copy are samples."
+  }
+}
