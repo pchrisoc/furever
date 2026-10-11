@@ -11,7 +11,7 @@ custom_domain = true
 [vars]
 CMS_ORIGIN = "https://pchrisoc.github.io"
 AUTH_ORIGIN = "https://redirect.simplyhost.org"
-GITHUB_REPOSITORY = "pchrisoc/furever"
+GITHUB_REPOSITORY = "pchrisoc/kittenrescueca"
 ALLOWED_GITHUB_USERS = "pchrisoc"
 GITHUB_SCOPE = "public_repo"
 

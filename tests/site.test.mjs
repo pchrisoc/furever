@@ -49,7 +49,7 @@ test('Preview isolates embedded scripts and invalid links/colors cannot inject m
  assert.throws(()=>renderPage(data,template),/HTTPS Petfinder/);
 });
 test('GitHub Pages project paths work for assets, internal links, and uploaded images',()=>{
- const data=clone();data.footer.links=[{label:'CMS',url:'/admin/'}];data.hero.image='/furever/assets/uploads/cat.jpg';
- const html=renderPage(data,template,{basePath:'/furever'});
- assert(html.includes('href="/furever/assets/styles.css"'));assert(html.includes('href="/furever/admin/"'));assert(html.includes('src="/furever/assets/uploads/cat.jpg"'));assert(!html.includes('/furever/furever/'));assert(!html.includes('netlify'));
+ const data=clone();data.footer.links=[{label:'CMS',url:'/admin/'}];data.hero.image='/kittenrescueca/assets/uploads/cat.jpg';
+ const html=renderPage(data,template,{basePath:'/kittenrescueca'});
+ assert(html.includes('href="/kittenrescueca/assets/styles.css"'));assert(html.includes('href="/kittenrescueca/admin/"'));assert(html.includes('src="/kittenrescueca/assets/uploads/cat.jpg"'));assert(!html.includes('/kittenrescueca/kittenrescueca/'));assert(!html.includes('netlify'));
 });

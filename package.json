@@ -10,7 +10,7 @@
     "test": "node --test tests/*.test.mjs",
     "configure-domain": "node scripts/configure-domain.mjs",
     "worker:deploy": "wrangler deploy --config oauth-worker/wrangler.toml",
-    "worker:check": "wrangler deploy --dry-run --config oauth-worker/wrangler.toml --outdir /tmp/furever-worker-check"
+    "worker:check": "wrangler deploy --dry-run --config oauth-worker/wrangler.toml --outdir /tmp/kittenrescueca-worker-check"
   },
   "engines": {
     "node": ">=22"

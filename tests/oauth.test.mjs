@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import worker, {handleRequest} from '../oauth-worker/src/index.mjs';
-const env={CMS_ORIGIN:'https://pchrisoc.github.io',AUTH_ORIGIN:'https://redirect.simplyhost.org',GITHUB_CLIENT_ID:'test-id',GITHUB_CLIENT_SECRET:'test-secret',STATE_SECRET:'test-state-secret-at-least-thirty-two-characters',GITHUB_REPOSITORY:'pchrisoc/furever',ALLOWED_GITHUB_USERS:'pchrisoc',GITHUB_SCOPE:'public_repo'};
+const env={CMS_ORIGIN:'https://pchrisoc.github.io',AUTH_ORIGIN:'https://redirect.simplyhost.org',GITHUB_CLIENT_ID:'test-id',GITHUB_CLIENT_SECRET:'test-secret',STATE_SECRET:'test-state-secret-at-least-thirty-two-characters',GITHUB_REPOSITORY:'pchrisoc/kittenrescueca',ALLOWED_GITHUB_USERS:'pchrisoc',GITHUB_SCOPE:'public_repo'};
 const start=()=>handleRequest(new Request(env.AUTH_ORIGIN+'/auth?provider=github&site_id=pchrisoc.github.io'),env);
 async function session(){const response=await start();return{response,state:new URL(response.headers.get('Location')).searchParams.get('state'),cookie:response.headers.get('Set-Cookie').split(';')[0]};}
 test('authorization uses fixed callback, limited scope, PKCE, and an encrypted secure cookie',async()=>{

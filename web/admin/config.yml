@@ -1,7 +1,7 @@
 {
   "backend": {
     "name": "github",
-    "repo": "pchrisoc/furever",
+    "repo": "pchrisoc/kittenrescueca",
     "branch": "main",
     "base_url": "https://redirect.simplyhost.org",
     "auth_endpoint": "auth",
