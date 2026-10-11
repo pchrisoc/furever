@@ -1,7 +1,7 @@
 {
   "repository": "pchrisoc/kittenrescueca",
-  "siteOrigin": "https://pchrisoc.github.io",
-  "basePath": "/kittenrescueca",
-  "customDomain": "",
+  "siteOrigin": "https://kittenrescueca.org",
+  "basePath": "",
+  "customDomain": "kittenrescueca.org",
   "oauthOrigin": "https://redirect.simplyhost.org"
 }

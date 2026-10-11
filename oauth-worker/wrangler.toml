@@ -9,7 +9,7 @@ pattern = "redirect.simplyhost.org"
 custom_domain = true
 
 [vars]
-CMS_ORIGIN = "https://pchrisoc.github.io"
+CMS_ORIGIN = "https://kittenrescueca.org"
 AUTH_ORIGIN = "https://redirect.simplyhost.org"
 GITHUB_REPOSITORY = "pchrisoc/kittenrescueca"
 ALLOWED_GITHUB_USERS = "pchrisoc"
