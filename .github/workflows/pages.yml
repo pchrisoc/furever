@@ -23,6 +23,10 @@ jobs:
         with:
           node-version: '22'
           cache: npm
+      - name: Select GitHub Actions as the Pages source
+        run: node scripts/configure-pages.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - run: npm ci
       - run: npm test
       - uses: actions/configure-pages@v5
