@@ -26,3 +26,5 @@
 }
 
 .button:hover{filter:brightness(.92)}
+
+.footer-grid{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between}.footer-brand{flex:1;min-width:0}.footer-contact{order:2;margin-left:auto;text-align:right;min-width:0}.footer-links{order:1;min-width:0}@media(max-width:580px){.footer-brand{flex-basis:100%}.footer-contact{max-width:100%}}
