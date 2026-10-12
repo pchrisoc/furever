@@ -1,11 +1,14 @@
 import { readFile, cp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { renderPage } from '../web/assets/render-page.mjs';
 const root = new URL('../', import.meta.url);
 const deployment = JSON.parse(await readFile(new URL('deployment.json',root),'utf8'));
 const basePath = process.env.SITE_BASE_PATH ?? (deployment.customDomain ? '' : deployment.basePath);
 if(basePath && !/^\/[\w/-]+$/.test(basePath))throw new Error('Invalid site base path.');
 const content = JSON.parse(await readFile(new URL('web/content.json', root), 'utf8'));
-const template = await readFile(new URL('web/index.html', root), 'utf8');
+const stylesheet = await readFile(new URL('web/assets/styles.css', root), 'utf8');
+const styleVersion = createHash('sha256').update(stylesheet).digest('hex').slice(0,12);
+const template = (await readFile(new URL('web/index.html', root), 'utf8')).replace('/assets/styles.css', `/assets/styles.css?v=${styleVersion}`);
 const embedFallback = await readFile(new URL('web/petfinder-embed.html', root), 'utf8');
 const html = renderPage(content, template, {embedFallback,basePath,siteUrl:(deployment.customDomain?'https://'+deployment.customDomain:deployment.siteOrigin)+basePath+'/'});
 await rm(new URL('dist/', root), { recursive: true, force: true });
