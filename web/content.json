@@ -99,9 +99,9 @@
     "location": "Your city, your state",
     "petfinderLabel": "Visit Petfinder",
     "links": [],
-    "copyright": "© Kitten Rescue CA",
-    "bottomText": "Made for second chances.",
-    "showSampleNotice": true,
-    "sampleNotice": "Preview content · Contact details and organization copy are samples."
+    "copyright": "",
+    "bottomText": "",
+    "showSampleNotice": false,
+    "sampleNotice": ""
   }
 }
