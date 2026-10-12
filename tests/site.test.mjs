@@ -43,7 +43,7 @@ test('Preview isolates embedded scripts and invalid links/colors cannot inject m
  data.theme.accent='red;}body{display:none';data.hero.buttonUrl='javascript:alert(1)';
  const html=renderPage(data,template,{preview:true,baseUrl:'https://example.org/'});
  assert(!html.includes('unsafe()'));assert(!html.includes('javascript:'));
- assert(!html.includes('display:none'));assert(html.includes('--accent:#48728c'));
+ assert(!html.includes('display:none'));assert(html.includes('--accent:#7d3b8c'));
  assert(html.includes('Your Petfinder embed will run on the published page.'));
  data.cats.petfinderUrl='https://petfinder.com.example.org/';
  assert.throws(()=>renderPage(data,template),/HTTPS Petfinder/);

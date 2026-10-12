@@ -119,7 +119,7 @@
                   "enableAlpha": false
                 },
                 {
-                  "label": "About section / light blue",
+                  "label": "About section / lavender",
                   "name": "lightBlue",
                   "widget": "color",
                   "allowInput": true,
