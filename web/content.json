@@ -19,8 +19,8 @@
     "eyebrow": "",
     "title": "For the love\nof cats.",
     "highlight": "cats.",
-    "description": "Kitten Rescue CA is dedicated to helping cats find loving homes. We believe every cat deserves a safe place to land, a little patience, and someone to call their own. Our goal is to connect people with feline companions and make the journey to adoption feel welcoming and personal.",
-    "signoff": "A new beginning for them.\nA new best friend for you."
+    "description": "Kitten Rescue CA’s mission is to connect cats and kittens with safe, loving indoor homes where they are cherished for a lifetime. We promote responsible adoption rooted in compassion, respect, and a commitment to each cat’s health and well-being. If an adopter can no longer provide care, we welcome the cat back—because our commitment doesn’t end at adoption.",
+    "signoff": "A loving home for life.\nA commitment that lasts."
   },
   "navigation": [
     {
@@ -62,16 +62,16 @@
   "footer": {
     "enabled": true,
     "sampleNotice": "",
-    "locationTitle": "Find us.",
+    "locationTitle": "",
     "copyright": "",
     "phone": "",
-    "petfinderLabel": "Visit Petfinder",
-    "location": "Los Gatos, CA",
+    "petfinderLabel": "",
+    "location": "",
     "bottomText": "",
-    "contactTitle": "Say hello.",
+    "contactTitle": "",
     "links": [],
     "email": "ranae@kittenrescueca.org",
-    "contactDescription": "For adoption questions and all things cats.",
+    "contactDescription": "Los Gatos, CA",
     "showSampleNotice": false
   },
   "branding": {
