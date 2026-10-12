@@ -1,32 +1,26 @@
 {
-  "seo": {
-    "title": "Kitten Rescue CA · Cat Adoption",
-    "description": "Meet your next feline companion at Kitten Rescue CA. Learn about our mission and explore cat adoption through Petfinder.",
-    "favicon": "/assets/branding/favicon-transparent.ico",
-    "appleTouchIcon": "/assets/branding/apple-touch-icon-transparent.png",
-    "socialImage": "/assets/branding/kitten-rescue-ca-logo-transparent.png",
-    "appIcon": "/assets/branding/app-icon-512-transparent.png"
-  },
-  "branding": {
-    "name": "Kitten Rescue CA",
-    "subtitle": "",
-    "logo": "/assets/branding/kitten-rescue-ca-logo-transparent.png",
-    "tagline": "Helping cats find their people."
-  },
   "theme": {
-    "background": "#ffffff",
-    "text": "#303a40",
-    "muted": "#59666e",
-    "lightBlue": "#f0e5f5",
-    "accent": "#7d3b8c",
-    "border": "#dfcce7",
     "panel": "#faf6fc",
-    "footer": "#f3eaf7",
-    "buttonText": "#ffffff",
-    "headingFont": "serif",
+    "buttonRadius": 5,
+    "accent": "#7d3b8c",
+    "muted": "#59666e",
+    "border": "#dfcce7",
+    "text": "#303a40",
+    "background": "#ffffff",
+    "lightBlue": "#f0e5f5",
     "bodyFont": "sans",
+    "headingFont": "serif",
     "pageWidth": 1160,
-    "buttonRadius": 5
+    "footer": "#f3eaf7",
+    "buttonText": "#ffffff"
+  },
+  "about": {
+    "enabled": true,
+    "eyebrow": "",
+    "title": "For the love\nof cats.",
+    "highlight": "cats.",
+    "description": "Kitten Rescue CA is dedicated to helping cats find loving homes. We believe every cat deserves a safe place to land, a little patience, and someone to call their own. Our goal is to connect people with feline companions and make the journey to adoption feel welcoming and personal.",
+    "signoff": "A new beginning for them.\nA new best friend for you."
   },
   "navigation": [
     {
@@ -42,66 +36,72 @@
       "url": "#contact"
     }
   ],
-  "hero": {
-    "enabled": true,
-    "eyebrow": "SMALL PAWS. BIG POSSIBILITIES.",
-    "eyebrowIcon": "✦",
-    "title": "A little love.\nA forever home.",
-    "highlight": "forever",
-    "description": "Your favorite hello might just be a meow.\nFind a feline friend and give a new story a place to begin.",
-    "buttonLabel": "Meet your new companion",
-    "buttonUrl": "#cats",
-    "note": "Open your heart. Make room for a cat.",
-    "image": "/assets/branding/kitten-rescue-ca-logo-transparent.png",
-    "imageAlt": "Kitten Rescue California logo: a black kitten and California poppies over a purple California silhouette",
-    "imageLabel": "",
-    "imageCaption": "",
-    "captionIcon": ""
-  },
-  "about": {
-    "enabled": true,
-    "eyebrow": "HELLO, WE’RE KITTEN RESCUE CA",
-    "title": "For the love\nof cats.",
-    "highlight": "cats.",
-    "description": "Kitten Rescue CA is dedicated to helping cats find loving homes. We believe every cat deserves a safe place to land, a little patience, and someone to call their own. Our goal is to connect people with feline companions and make the journey to adoption feel welcoming and personal.",
-    "signoff": "A new beginning for them.\nA new best friend for you."
-  },
-  "cats": {
-    "enabled": true,
-    "eyebrow": "YOUR NEXT CHAPTER STARTS HERE",
-    "title": "Someone special\nis waiting.",
-    "description": "Big personalities. Soft little paws.\nExplore adoptable cats through Petfinder\nand find the friend who feels like home.",
-    "petfinderUrl": "https://www.petfinder.com/search/cats-for-adoption/",
-    "petfinderEmbed": "<!-- Pet List Widget - Start -->\n<script src=\"https://www.petfinder.com/pet-scroller.bundle.js\"></script>\n<pet-scroller\n    s3Url=\"https://dbw3zep4prcju.cloudfront.net/\"\n    apiBase=\"https://psl.petfinder.com/graphql\"\n    organization='[\"CA10069\"]'\n    status=\"adoptable\"\n    petfinderUrl=\"https://www.petfinder.com/\"\n    hideBreed=\"true\"\n    limit=\"48\"\n    petListTitle=\"\">\n</pet-scroller>\n<!-- Pet List Widget - End -->\n",
-    "widgetHeight": 650,
-    "placeholderLabel": "ADOPTABLE CATS · PETFINDER",
-    "placeholderImage": "/assets/branding/kitten-rescue-ca-logo-transparent.png",
-    "placeholderTitle": "A little space for your future best friend.",
-    "placeholderDescription": "Our adoptable-cat listings will appear right here.\nCheck back soon to meet the cats.",
-    "placeholderBadge": "Petfinder embed placeholder",
-    "fallbackText": "Prefer to browse on Petfinder?",
-    "fallbackLabel": "Explore cat listings"
-  },
   "closing": {
-    "enabled": true,
+    "enabled": false,
     "icon": "♡",
     "text": "One small paw.\nA whole lot of love.",
     "buttonLabel": "Let’s connect",
     "buttonUrl": "#contact"
   },
+  "hero": {
+    "enabled": true,
+    "eyebrowIcon": "",
+    "buttonLabel": "",
+    "eyebrow": "",
+    "imageCaption": "",
+    "imageAlt": "Kitten Rescue California logo: a black kitten and California poppies over a purple California silhouette",
+    "note": "",
+    "highlight": "home",
+    "title": "Rescued cats,\nin need of a home",
+    "imageLabel": "",
+    "image": "/assets/branding/kitten-rescue-ca-logo-transparent.png",
+    "description": "Kitten Rescue CA is a 501(c)(3) based in Los Gatos, CA dedicated to finding rescued cats a forever home.",
+    "buttonUrl": "",
+    "captionIcon": ""
+  },
   "footer": {
     "enabled": true,
-    "contactTitle": "Say hello.",
-    "contactDescription": "For adoption questions and all things cats.",
-    "email": "hello@example.org",
-    "phone": "(555) 010-2020",
+    "sampleNotice": "",
     "locationTitle": "Find us.",
-    "location": "Your city, your state",
-    "petfinderLabel": "Visit Petfinder",
-    "links": [],
     "copyright": "",
+    "phone": "",
+    "petfinderLabel": "Visit Petfinder",
+    "location": "Los Gatos, CA",
     "bottomText": "",
-    "showSampleNotice": false,
-    "sampleNotice": ""
+    "contactTitle": "Say hello.",
+    "links": [],
+    "email": "ranae@kittenrescueca.org",
+    "contactDescription": "For adoption questions and all things cats.",
+    "showSampleNotice": false
+  },
+  "branding": {
+    "name": "Kitten Rescue CA",
+    "subtitle": "",
+    "logo": "/assets/branding/kitten-rescue-ca-logo-transparent.png",
+    "tagline": "Helping cats find their people."
+  },
+  "seo": {
+    "title": "Kitten Rescue CA · Cat Adoption",
+    "description": "Meet your next feline companion at Kitten Rescue CA. Learn about our mission and explore cat adoption through Petfinder.",
+    "favicon": "/assets/branding/favicon-transparent.ico",
+    "appleTouchIcon": "/assets/branding/apple-touch-icon-transparent.png",
+    "socialImage": "/assets/branding/kitten-rescue-ca-logo-transparent.png",
+    "appIcon": "/assets/branding/app-icon-512-transparent.png"
+  },
+  "cats": {
+    "placeholderLabel": "ADOPTABLE CATS · PETFINDER",
+    "enabled": true,
+    "placeholderTitle": "A little space for your future best friend.",
+    "placeholderImage": "/assets/branding/kitten-rescue-ca-logo-transparent.png",
+    "placeholderDescription": "Our adoptable-cat listings will appear right here.\nCheck back soon to meet the cats.",
+    "eyebrow": "",
+    "petfinderUrl": "https://www.petfinder.com/search/cats-for-adoption/",
+    "widgetHeight": 650,
+    "fallbackText": "",
+    "placeholderBadge": "Petfinder embed placeholder",
+    "fallbackLabel": "",
+    "petfinderEmbed": "<!-- Pet List Widget - Start -->\n<script src=\"https://www.petfinder.com/pet-scroller.bundle.js\"></script>\n<pet-scroller\n    s3Url=\"https://dbw3zep4prcju.cloudfront.net/\"\n    apiBase=\"https://psl.petfinder.com/graphql\"\n    organization='[\"CA10069\"]'\n    status=\"adoptable\"\n    petfinderUrl=\"https://www.petfinder.com/\"\n    hideBreed=\"true\"\n    limit=\"48\"\n    petListTitle=\"\">\n</pet-scroller>\n<!-- Pet List Widget - End -->\n",
+    "title": "Meet our cats.",
+    "description": "Below is our furry friends, listed on Petfinder for your convenience."
   }
 }
